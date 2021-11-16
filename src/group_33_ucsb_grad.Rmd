@@ -5,15 +5,14 @@ date: "11/15/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, warning= FALSE, message= FALSE}
+knitr::opts_chunk$set(echo = FALSE , warning=FALSE , message=FALSE )
 
 # Attach Packages
 library(tidyverse)
 library(here)
 ```
 
-## Read in the data
 
 ```{r}
 ucsb_grad <- read_csv(here("data","ucsb_grad_data.csv"))
@@ -23,8 +22,9 @@ ucsb_grad <- read_csv(here("data","ucsb_grad_data.csv"))
 
 ggplot(data = ucsb_grad, aes(y = domestic_enrollment , x = year_abbr)) + 
   geom_col(position= "fill", aes(fill = ethnicity)) + 
-  labs(x= "Year", y= "Domestic Enrollment", fill = "Ethnicity" , 
+  labs(x= "Year", y= "Domestic Enrollment %", fill = "Ethnicity" , 
        title = "Ethnicity of UCSB Graduates (2008 - 2019)") + 
   theme_minimal()
 ```
-Figure 1. The ethnicities of UCSB graduate students from 2008-2019. UCSB graduates are majority a large White population. Other ethnicities have slightly increased over the years, specifically Black, Asian/Pacific Islander, and Chicano.  
+
+*Figure 1. Ethnicities of UCSB graduate students from 2008-2019.* The column chart above depicts UCSB ethnicities by % each year. UCSB graduates are a majority White population. Other ethnicities have slightly increased over the years, specifically Black, Asian/Pacific Islander, and Chicano.  
